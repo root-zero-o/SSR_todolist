@@ -1,34 +1,44 @@
+// 홈화면 : SG를 사용해보자
 import React from 'react'
+import { useRouter } from "next/router";
+import { TodoType } from "../types";
+import apis from '../api/main';
 
-const Index = () => {
+type Props = {
+  todoData : TodoType[];
+}
+
+const Index = ({todoData} : Props) => {
+
+  const router = useRouter();
+
+  // 라우터 객체를 활용해 라우팅
+
   return (
-    <div className="container">
-      <div className="flex flex-col mt-8">
-        <h1>TO DO LIST</h1>
-        <h2>with SSR, React Query & Redux toolkit !</h2>
-      </div>
-      <form>
-        <input 
-          type="text" 
-          className="main-input"
-          placeholder="Write your plan"/>
-        <button type="submit" className="btn1"><h2>Go</h2></button>
-      </form>
-      <div className="flex flex-col">
-        <h2>Plans</h2>
-        <div className="card">
-          <input type="checkbox" className="checkbox"/>
-          <h2>Go to work</h2>
-          <button className="btn1"><h2>Delete</h2></button>
-        </div>
-        <div className="card">
-          <input type="checkbox" className="checkbox"/>
-          <h2>Study SSR</h2>
-          <button className="btn1"><h2>Delete</h2></button>
-        </div>
-      </div>
+    <div className='flex flex-col items-center justify-center space-y-5'>
+      <span className="font-serif text-5xl">TO DO LIST</span>
+      <span className="font-serif text-lg ">You have {todoData?.length} works to do !</span>
+      <button 
+        className='btn1'
+        onClick={() => router.push("/todoList")}>
+          <h2>GO</h2>
+      </button>
     </div>
   )
 }
 
 export default Index;
+
+export async function getStaticProps() {
+  try {
+    const { data } = await apis.getTodos();
+    return {
+      props: {
+        todoData : data
+      }
+    }
+  }
+  catch(err){
+    console.log(err)
+  }
+}
