@@ -1,6 +1,5 @@
 import React from "react";
 import type { AppProps } from "next/app";
-import "../styles/globals.css";
 import "../styles/elements.css";
 import { Hydrate, QueryClient, QueryClientProvider } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools"

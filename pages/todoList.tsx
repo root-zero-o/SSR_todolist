@@ -11,15 +11,18 @@ const TodoList = () => {
 
 
   return (
-    <div className="container">
-      <div className="flex flex-col mt-8">
-        <h1>TO DO LIST</h1>
-        <h2>with SSR  & React Query !</h2>
+    <div className='flex flex-col p-10 items-center justify-center space-y-5 bg-ivory w-screen h-screen dark:bg-black'>
+      <div className="container">
+        <div className="flex flex-col mt-8">
+          <h1>TO DO LIST</h1>
+          <h2>with SSR  & React Query !</h2>
+        </div>
+        <Input/>
+        <h2>Plans</h2>
+        <ListContainer/>
       </div>
-      <Input/>
-      <h2>Plans</h2>
-      <ListContainer/>
     </div>
+    
   )
 }
 

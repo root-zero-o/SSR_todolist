@@ -6,6 +6,7 @@ import { getTodoData } from '../api/api';
 import { queryKeys } from '../keys';
 import UseGetTodos from '../Hooks/useGetTodos';
 import { TodoType } from '../types';
+import DarkMode from '../components/DarkMode';
 
 const Index = () => {
 
@@ -15,9 +16,10 @@ const Index = () => {
   const incompletedData = data.filter((value : TodoType) => value.completed === false)
 
   return (
-    <div className='flex flex-col items-center justify-center space-y-5'>
-      <span className="font-serif text-5xl">TO DO LIST</span>
-      <span className="font-serif text-lg ">You have {incompletedData.length} works to do !</span>
+    <div className='flex flex-col p-10 items-center justify-center space-y-5 bg-ivory w-screen h-screen dark:bg-black'>
+      <DarkMode/>
+      <span className="font-serif text-5xl dark:text-white">TO DO LIST</span>
+      <span className="font-serif text-lg dark:text-white">You have {incompletedData.length} works to do !</span>
       <button 
         className='btn1'
         onClick={() => router.push("/todoList")}>
