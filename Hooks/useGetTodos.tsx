@@ -1,6 +1,5 @@
-import { useQuery, UseQueryResult } from "react-query";
+import { useQuery } from "react-query";
 import apis from '../api/main';
-import { TodoType } from "../types";
 import { queryKeys } from "../keys";
 
 const UseGetTodos = () => {
