@@ -1,13 +1,13 @@
 import React from 'react'
 import ListContainer from '../components/ListContainer';
-import apis from '../api/main';
 import { GetServerSideProps } from 'next';
-import { Props } from '../types';
+import { dehydrate, QueryClient } from 'react-query';
+import { queryKeys } from '../keys';
+import { getTodoData } from '../api/api';
 
 
-const TodoList = ({todoData} : Props) => {
+const TodoList = () => {
 
-  console.log(todoData)
   return (
     <div className="container">
       <div className="flex flex-col mt-8">
@@ -22,18 +22,20 @@ const TodoList = ({todoData} : Props) => {
         <button type="submit" className="btn1"><h2>Submit</h2></button>
       </form>
       <h2>Plans</h2>
-      <ListContainer todoData={todoData}/>
+      <ListContainer/>
     </div>
   )
 }
 
 export const getServerSideProps : GetServerSideProps = async () => {
 
-  const { data } = await apis.getTodos()
+  const queryClient = new QueryClient();
+
+  await queryClient.prefetchQuery(queryKeys.todos, getTodoData)
 
   return {
       props : {
-          todoData : data
+          dehydratedState: dehydrate(queryClient)
       }
   }
 }

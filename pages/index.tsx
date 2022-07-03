@@ -2,8 +2,7 @@
 import React from 'react'
 import { dehydrate, QueryClient, useQuery } from 'react-query';
 import { useRouter } from "next/router";
-import { TodoType } from "../types";
-import apis from '../api/main';
+import { getTodoData } from '../api/api';
 import { queryKeys } from '../keys';
 import UseGetTodos from '../Hooks/useGetTodos';
 
@@ -31,10 +30,7 @@ export default Index;
 export async function getStaticProps() {
   const queryClient = new QueryClient()
 
-  const getTodoData = async () => {
-    const { data } = await apis.getTodos()
-    return data
-  }
+  
 
   try {
     await queryClient.prefetchQuery(queryKeys.todos, getTodoData)

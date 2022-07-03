@@ -1,12 +1,16 @@
 import React from 'react'
-import { Props } from '../types';
+import UseGetTodos from '../Hooks/useGetTodos';
+import { TodoType } from '../types';
 import List from './List';
 
-const ListContainer = ({todoData} : Props ) => {
+const ListContainer = () => {
+
+    const { data } = UseGetTodos();
+
 
   return (
     <div className="flex flex-col">
-        { todoData.map((value, index) => (
+        { data.map((value : TodoType, index : number) => (
             <List
                 key={index}
                 content={value.content}
@@ -16,8 +20,6 @@ const ListContainer = ({todoData} : Props ) => {
     </div>
   )
 }
-
-
 
 export default ListContainer;
 
