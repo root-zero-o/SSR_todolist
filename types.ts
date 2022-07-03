@@ -1,7 +1,7 @@
 export interface TodoType {
     id? : number;
     content? : string;
-    completed: boolean;
+    completed?: boolean;
 }
 
 export type Props = {

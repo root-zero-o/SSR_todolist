@@ -5,17 +5,19 @@ import { useRouter } from "next/router";
 import { getTodoData } from '../api/api';
 import { queryKeys } from '../keys';
 import UseGetTodos from '../Hooks/useGetTodos';
+import { TodoType } from '../types';
 
 const Index = () => {
 
   const router = useRouter();
   // 라우터 객체를 활용해 라우팅
   const { data } = UseGetTodos();
+  const incompletedData = data.filter((value : TodoType) => value.completed === false)
 
   return (
     <div className='flex flex-col items-center justify-center space-y-5'>
       <span className="font-serif text-5xl">TO DO LIST</span>
-      <span className="font-serif text-lg ">You have {data?.length} works to do !</span>
+      <span className="font-serif text-lg ">You have {incompletedData.length} works to do !</span>
       <button 
         className='btn1'
         onClick={() => router.push("/todoList")}>

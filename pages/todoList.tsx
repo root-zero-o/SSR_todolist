@@ -4,9 +4,11 @@ import { GetServerSideProps } from 'next';
 import { dehydrate, QueryClient } from 'react-query';
 import { queryKeys } from '../keys';
 import { getTodoData } from '../api/api';
+import Input from '../components/Input';
 
 
 const TodoList = () => {
+
 
   return (
     <div className="container">
@@ -14,13 +16,7 @@ const TodoList = () => {
         <h1>TO DO LIST</h1>
         <h2>with SSR  & React Query !</h2>
       </div>
-      <form>
-        <input 
-          type="text" 
-          className="main-input"
-          placeholder="Write your plan"/>
-        <button type="submit" className="btn1"><h2>Submit</h2></button>
-      </form>
+      <Input/>
       <h2>Plans</h2>
       <ListContainer/>
     </div>

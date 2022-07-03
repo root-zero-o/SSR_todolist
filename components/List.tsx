@@ -1,12 +1,36 @@
 import React from 'react'
+import useUpdateTodo from '../Hooks/useUpdateTodo';
 import { TodoType } from '../types';
+import DeleteBtn from './DeleteBtn';
 
-const List = ({content, completed} : TodoType) => {
+const List = ({id, content, completed} : TodoType) => {
+
+  const { mutate } = useUpdateTodo();
+
+  const checkboxHandler = () => {
+    mutate({
+      id: id,
+      completed: !completed
+    })
+  }
+
   return (
     <div className="card">
-        <input type="checkbox" className="checkbox"/>
+        { completed ? 
+          (<input 
+            type="checkbox" 
+            className="checkbox"
+            onClick={checkboxHandler} 
+            checked/>
+          ) 
+        : (<input 
+            type="checkbox" 
+            className="checkbox" 
+            onClick={checkboxHandler}/>
+          )
+        }
         <h2>{content}</h2>
-        <button className="btn1"><h2>Delete</h2></button>
+        <DeleteBtn id={id}/>
     </div>
   )
 }
