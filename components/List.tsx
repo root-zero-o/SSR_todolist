@@ -21,7 +21,7 @@ const List = ({id, content, completed} : TodoType) => {
             type="checkbox" 
             className="checkbox"
             onClick={checkboxHandler} 
-            checked/>
+            defaultChecked/>
           ) 
         : (<input 
             type="checkbox" 

@@ -7,7 +7,13 @@ import { ReactQueryDevtools } from "react-query/devtools"
 
 const App = ({ Component, pageProps }: AppProps) => {
 
- const [queryClient] = React.useState(() => new QueryClient())
+ const [queryClient] = React.useState(() => new QueryClient({
+  defaultOptions: {
+    queries: {
+      refetchOnWindowFocus: false,  // focus 될때마다 refetch 되는 것을 막는다.
+    }
+  }
+ }))
  
 
   return (
