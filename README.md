@@ -9,6 +9,6 @@
 
 ### 📚 What I Learned
 
-- Tailwind CSS custom theme
+- Tailwind CSS custom theme, dark mode
 - SSG, SSR (Next.js)
 - React Query : prefetchQuery, hydrate, stale & cache
