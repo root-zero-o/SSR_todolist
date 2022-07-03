@@ -13,10 +13,10 @@
 
 @layer components {
   .container {
-    @apply bg-ivory bg-green rounded-xl h-[600px] py-5 px-10 grid text-center space-y-2 shadow-xl;
+    @apply bg-ivory bg-green rounded-xl py-5 px-10 grid text-center space-y-2 shadow-xl;
   }
   .main-input {
-    @apply font-serif w-64 border-4 border-orange rounded-xl p-2 focus:outline-none focus:border-red placeholder:italic;
+    @apply font-serif w-64 border-4 border-orange rounded-xl my-5 p-2 focus:outline-none focus:border-red placeholder:italic;
   }
   .btn1 {
     @apply bg-red border-2 border-red py-2 px-5 ml-4 rounded-lg hover:border-2 hover:shadow-md;

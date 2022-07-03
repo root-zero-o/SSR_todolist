@@ -7,19 +7,11 @@ import apis from '../api/main';
 import { queryKeys } from '../keys';
 import UseGetTodos from '../Hooks/useGetTodos';
 
-//https://velog.io/@hhhminme/Next.js%EC%97%90%EC%84%9C-Axios%EB%A5%BC-%ED%86%B5%ED%95%B4-getStaticProps%EB%A5%BC-%EC%82%AC%EC%9A%A9%ED%95%B4%EB%B3%B4%EC%9E%90feat.-typescirpt
-
-type Props = {
-  todoData : TodoType[];
-}
-
 const Index = () => {
 
   const router = useRouter();
-  const { data } = UseGetTodos();
-  console.log(data)
-
   // 라우터 객체를 활용해 라우팅
+  const { data } = UseGetTodos();
 
   return (
     <div className='flex flex-col items-center justify-center space-y-5'>

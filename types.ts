@@ -3,3 +3,8 @@ export interface TodoType {
     content? : string;
     completed: boolean;
 }
+
+export type Props = {
+    todoData : TodoType[]; 
+  }
+  
