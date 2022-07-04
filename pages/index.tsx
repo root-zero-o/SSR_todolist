@@ -13,13 +13,13 @@ const Index = () => {
   const router = useRouter();
   // 라우터 객체를 활용해 라우팅
   const { data } = UseGetTodos();
-  const incompletedData = data.filter((value : TodoType) => value.completed === false)
+  const incompletedData = data?.filter((value : TodoType) => value.completed === false)
 
   return (
     <div className='flex flex-col p-10 items-center justify-center space-y-5 bg-ivory w-screen h-screen dark:bg-black'>
       <DarkMode/>
       <span className="font-serif text-5xl dark:text-white">TO DO LIST</span>
-      <span className="font-serif text-lg dark:text-white">You have {incompletedData.length} works to do !</span>
+      <span className="font-serif text-lg dark:text-white">You have {incompletedData?.length} works to do !</span>
       <button 
         className='btn1'
         onClick={() => router.push("/todoList")}>

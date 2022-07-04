@@ -11,7 +11,7 @@ const ListContainer = () => {
   return (
     <div className="flex flex-col">
         <DarkMode/>
-        { data.map((value : TodoType, index : number) => (
+        { data?.map((value : TodoType, index : number) => (
             <List
                 key={index}
                 id={value.id}
